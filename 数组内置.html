@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr=[1,0];
+		var arr0=arr.concat(20,30)
+		console.log(arr0);
+        arr0.pop();
+        console.log(arr0);
+        arr0.push('height');
+        console.log(arr0);
+        console.log(arr);
+        arr0.shift();
+        console.log(arr0);
+        console.log(arr);
+        arr0.unshift('b');
+        console.log(arr0);
+        var arr1= arr0.slice(0,3)
+         console.log(arr1);
+         
+         var o=arr0.splice(0,1);
+         console.log(o);
+         console.log(arr0);
+         var x=arr0.splice(2,1,"hj")
+         console.log(arr0);
+	</script>
+</body>
+</html>

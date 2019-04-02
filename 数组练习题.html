@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		1.查找数组中数值大于18对象的位置 ，arr=[5,19,21,9,83,10];
+		var arr=[5,19,21,9,83,10];
+		for(var i in arr){
+          if (arr[i]>18) {
+          	console.log(i);
+          }
+		}
+
+
+		2.改变传入的数组，将数组中第 n(从 0 开始算 ) 个元素放到数组的开头 (用函数实现)
+		
+		function change(arr,n){
+			var arr0=[];
+			arr0[0]=arr[n]
+			for(var i in arr){
+           if (i==n) {
+           	continue;
+           }
+           arr0[arr0.length]=arr[i]
+		 }
+		 return arr0;
+		}
+         var arr=[12,13,14,15];
+         var o=change(arr,2);
+         console.log(o);
+         3.将数组中数字内容求和 arr=[5,"张三",9,80,true,28];
+         var arr=[5,"张三",9,80,true,28];
+         var sum=0;
+         for(var i in arr){
+         	if ((typeof arr[i])=='number') {
+         		sum+=arr[i]
+         	}
+         }
+         console.log(sum);
+         
+         4.将数组中重复的元素去掉,其中数组元素均为基本类性 arr1=[1,2,2,3,4,4,4,4];arr2=[1,2,'M','e','r', 'r', 'y'];
+         var arr1=[1,2,2,3,4,4,4,4];
+         for(var i in arr1){
+         	if (true) {}
+         }
+         6.在数组 arr 末尾添加元素 item。不要直接修改数组
+         function demo6(arr){
+         	var arr0=[];
+         	for(var i in arr){
+         		arr0[i]=arr[i]
+         		arr0[arr0.length]="item";
+         	}  
+         	return arr0;
+         }
+         var arr=[1,2,3,4,5];
+         var o=demo6(arr);
+         console.log(o);
+         console.log(arr);
+         7.删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组
+
+            function demo7(arr){
+             var arr0=[];
+             for(var i in arr){
+                 if (i==arr.length-1) {
+                 	break;
+                 }
+                   arr0[arr0.length]=arr[i];
+             }
+             return arr0;
+            }
+            var arr=[1,2,3,4];
+            var arr1=demo7(arr)
+            console.log(arr1);
+
+            function demo11(arr,item){
+             for(var i in arr){
+             	if (arr[i]==item) {
+             		return i;
+             	}
+             }
+             return -1;
+            }
+            var arr=[1,3,5,7,9];
+            var o=demo11(arr,7);
+            console.log(o);
+
+         function getScore(){
+         	var arr=[];
+         	for(var i=0;i<5;i++){
+               var score=prompt("输入成绩：");
+               arr[i]=parseFloat(score);
+         	}
+         	return arr;
+         }
+         var arr=getScore();
+
+         console.log("成绩："+arr)
+
+         function max(arr){
+         	var maxScore=arr[0]
+           for(var i in arr){
+             if (arr[i]>maxScore) {
+             	maxScore=arr[i];
+             }
+           }
+           return maxScore;
+         }
+         var max=max(arr);
+         console.log('最高分：'+max)
+
+        function min(arr){
+        	var minScore=arr[0];
+        	for(var i in arr){
+        		if (arr[i]<minScore) {
+        			minScore=arr[i];
+        		}
+        	}
+        	return minScore;
+        }
+        var min=min(arr);
+        console.log('最低分:'+min)
+
+        function getAvg(arr){
+          var sum=0;
+          for(var i in arr){
+          	sum+=arr[i]
+          }
+          return sum/arr.length;
+        }
+        var avg=getAvg(arr);
+        console.log('平均分：'+avg);
+	</script>
+</body>
+</html>

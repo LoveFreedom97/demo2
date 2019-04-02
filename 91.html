@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动轮播</title>
+	<style type="text/css">
+		#box{width: 590px;height: 470px;margin: 50px auto;position: relative;}
+		#content div{display: none;}
+		#content div.sel{display: block;}
+		#box-arrow{position: absolute;top: 50%;margin-top: -16px;width: 100%;}
+		#box-arrow .arrow{width: 26px;height: 26px;background: rgba(0,0,0,0.5);padding: 2px;}
+		#box-arrow .al{float: left;}
+		#box-arrow .ar{ float: right;}
+
+		#box .cus{position: absolute;bottom: 15px;left: 50%;transform: translateX(-50%);}
+		#box .cus li{list-style-type: none;width: 10px;height: 10px;border: 1px solid #fff;border-radius: 50%;float: left;
+			margin-right: 10px;}
+		#box .cus li.current{background: white;}
+		
+	</style>
+</head>
+<body>
+	<div id="box">
+		<!-- 轮播图 -->
+		<div id="content">
+			<div class="sel"><img src="images/l1.jpg" alt=""></div>
+			<div><img src="images/l2.jpg" alt=""></div>
+			<div><img src="images/l3.jpg" alt=""></div>
+			<div><img src="images/l4.jpg" alt=""></div>
+		</div>
+		<!-- 指示器 -->
+		<ol class="cus">
+			<li class="current"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		<!-- 箭头 -->
+		<div id="box-arrow">
+			<img class="arrow al" src="images/arrow-left.png" alt="">
+			<img class="arrow ar" src="images/arrow-right.png" alt="">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var ds=document.getElementById('content').getElementsByTagName('div');
+		var o=document.getElementById('box');//轮播区
+		var arrows=document.getElementsByClassName('arrow');
+		var lis=document.getElementsByClassName('cus')[0].getElementsByTagName('li');
+
+		var index=0;//现在显示的轮播的索引
+		var len=ds.length;//轮播图个数
+		var t;
+
+		//1.自动轮播
+		t=setInterval(moveNext,2000);
+		//2.鼠标进入，停止轮播
+		o.onmouseenter=function () {
+			o.style.cursor='pointer';
+			clearInterval(t);
+		};
+		//3.鼠标离开时，继续
+		o.onmouseleave=function () {
+			t=setInterval(moveNext,2000);
+		};
+
+
+		//4.箭头轮播		
+		for(var i=0;i<arrows.length;i++){
+			arrows[i].onmouseenter=function(){
+				this.style.background='rgba(0,0,0,0.6)';
+			};	
+			arrows[i].onmouseleave=function(){
+				this.style.background='rgba(0,0,0,0.5)';
+			};		
+		}
+
+		//左箭头
+		arrows[0].onclick=function(){
+			movePre();
+		};
+		//右箭头
+		arrows[1].onclick=function(){
+			moveNext();
+		};
+
+
+		//5.指示器轮播
+		//指示器点击事件
+		for(var j=0;j<len;j++){
+			lis[j]._index=j;//为每一个li新增属性，赋值为当前索引
+			lis[j].onclick=function(){
+				//当前显示的修改
+				lis[index].className='';
+				ds[index].className='';
+
+				//被点击的  改变
+				this.className='current';
+				ds[this._index].className='sel';
+				index=this._index;//修改index值
+			};
+		}
+
+		//显示下一张
+		function moveNext() {
+			//当前显示的置为不显示
+			ds[index].className='';
+			lis[index].className='';
+			index++;//索引增加
+			//最后一张
+			if(index==len){
+				index=0;
+			}
+			//下一张显示
+			ds[index].className='sel';
+			lis[index].className='current';
+		}
+
+		//上一张
+		function movePre(){
+			//当前显示的置为不显示
+			ds[index].className='';
+			lis[index].className='';
+			index--;
+			//第一张，调整最后一张
+			if(index==-1){
+				index=len-1;
+			}
+			//上一张显示
+			ds[index].className='sel';
+			lis[index].className='current';
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0;}
+		#box{width: 120px;height: 180px;background: red;margin-top: 200px;position: relative;left: -120px;}
+		#box span{position: absolute;width: 20px;height: 80px;background: yellow;left: 120px;top: 50px;}
+	</style>
+</head>
+<body>
+		<div id="box">
+		<span>推荐更多</span>
+	</div>
+	<script>
+		var oBox=document.getElementById('box')
+		var sp=document.getElementById('box').children;
+		var timer;
+		oBox.onmouseover=function(){
+			clearInterval(timer)
+			timer=setInterval(moveLeft,20)
+		}
+		oBox.onmouseout=function(){
+            clearInterval(timer)
+            timer=setInterval(move,20);
+		}
+
+		function moveLeft(){
+			var o=oBox.offsetLeft;
+			if (o>=0) {
+				clearInterval(timer);
+			}else{
+               oBox.style.left=o+5+'px';
+			}
+		}
+		function move(){
+			var o=oBox.offsetLeft;
+			if(o<=-120){
+               clearInterval(timer);
+			}else{
+				oBox.style.left=o-5+'px';
+			}
+		}
+	</script>
+</body>
+</html>

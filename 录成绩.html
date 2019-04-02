@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function getScroe(){
+			var arr=[];
+			var score;
+			while((score=prompt('请输入成绩：'))!='exit'){
+				arr.push(score);
+			}
+			return arr;
+		}
+		var o=getScroe();
+		// o.forEach(function(item){
+		// 	console.log(item);
+		// })
+		var re1=o.some(function(item){
+			return item<60;
+		})
+		if (re1) {
+			console.log('有不及格的')
+		}else{
+			console.log('没有')
+		}
+		var sum=0;
+		var re2=o.some(function(item){
+			return item>90;
+		});
+
+		if (re2) {
+			o.forEach(function(item){
+				if (item>90) sum++;	
+			})
+			console.log('优秀学员有'+sum+'个')
+		}else{
+			console.log('没有')
+		}
+
+	</script>
+</body>
+</html>

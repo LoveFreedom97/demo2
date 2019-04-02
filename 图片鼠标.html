@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{padding: 0;margin: 0;}
+	img{width: 200px;height: 200px;position: absolute;/*cursor: pointer;*/}
+	</style>
+</head>
+<body>
+	<img src="1.jpg" alt="" draggable='false'>
+ <!-- <ul>
+	<li>aaaa</li>
+	<li>aaaa</li>
+	<li>aaaa</li>
+	<li>aaaa</li>
+ </ul> -->
+ <script>
+ 	// var lis=document.getElementsByTagName('ul')[0].getElementsByTagName('li');
+ 	// for(var i=0;i<lis.length;i++){
+ 	// 	lis[i].index=i;
+ 	// 	lis[i].onclick=function(){
+  //          alert(this.index)
+ 	// 	}
+ 	// }
+ 	// function demo1(){
+ 	// 	var a=10;
+ 	// 	console.log(a);
+ 	// 	return (function (){
+ 	// 		var b=20;
+ 	// 		console.log(a+b)
+ 	// 	}())
+ 	// }
+ 	// demo1();
+
+//  	var o=getImg();
+//     document.onmousemove=function(e){
+//        e=e||window.event
+//        var x=e.clientX;
+//        var y=e.clientY;
+//        o.style.left=x+'px';
+//        o.style.top=y+'px';
+//        document.body.appendChild(o)
+//     }
+//     function getImg(){
+//        var oImg=document.createElement('img');
+//        oImg.src='1.jpg';
+//        oImg.style.width='50px';
+//        oImg.style.height='50px';
+//        oImg.style.position='absolute';
+//        return oImg;
+//     }
+var oImg=document.getElementsByTagName('img')[0];
+var isDrage=false;
+var x1,y1,x,y;
+
+   oImg.onmousedown=function(e){
+   	e=e||window.event;
+    isDrage=true;
+   	this.style.cursor='move';
+   		
+       x=e.clientX;
+       y=e.clientY;
+       x1=x-this.offsetLeft;
+       y1=y-this.offsetTop;//鼠标在图片的位置
+   }
+   document.onmousemove=function(e){
+   	if (!isDrage) {
+   		return;
+   	}
+   	e=e||window.event;
+       x=e.clientX;
+       y=e.clientY;
+       //减去鼠标在图片位置为图片位置
+      oImg.style.left=x-x1+'px';
+      oImg.style.top=y-y1+'px';
+
+   }
+    o=document.onmouseup=function(e){
+   	  isDrage=false; 
+   	  oImg.style.cursor='default';
+   	   
+   }
+
+  //   var mynum =6;//mynum初值化数值为6
+  // do
+  // {
+  // document.write("数字:"+mynum+"<br/>");
+  // mynum--;
+  // }
+  // while( mynum>0)
+   
+ </script>
+</body>
+</html>

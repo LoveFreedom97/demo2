@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+        // 1：查找数组中数值大于18对象的位置 ，arr=[5,19,21,9,83,10];
+
+// 2.改变传入的数组，将数组中第 n(从 0 开始算 ) 个元素放到数组的开头 (用函数实现)
+
+// 3.将数组中数字内容求和 arr=[5,"张三",9,80,true,28];
+
+// 4.将数组中重复的元素去掉,其中数组元素均为基本类性 arr1=[1,2,2,3,4,4,4,4];arr2=[1,2,'M','e','r', 'r', 'y'];
+
+// 5.找出数组中元素"5"的位置（用函数实现）。arr=["4","5","6","jack",true];
+
+// 6.在数组 arr 末尾添加元素 item。不要直接修改数组 arr=['jack','lucy','merry','tom','mike'];
+
+// 7.删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组
+
+// 8.在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组
+
+// 9.删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组
+
+// 1.合并数组 arr1 和数组 arr2。不要直接修改数组 arr，结果返回新的数组
+//  查找数组元素第一次出现的位置 , 如果存在返回位置,不存在返回-1(写成函数形式)
+//  在数组末尾添加元素 (直接修改原数组; 不修改原数组,产生一个新数组上添加
+
+
+
+		// var arr=[5,19,21,9,83,10];
+		// var arro=arr.some(function(item){
+  //           return item>18; 
+		// });
+		// if (arro) {
+		// 	arr.forEach(function(item,index){
+  //              if (item>18) console.log(index);
+		// 	})
+		// }
+
+         // function demo2(arr,n){
+         //   arr.unshift(arr[n]);
+         //   arr.splice(n+1,1);
+         //   return arr;
+         //  } 
+         //  function demo2(arr,n){
+         //  	var arr0=arr.splice(n,1);
+         //  	arr.unshift(arr0[0]);
+         //  	return arr;
+         //  }
+         // var arr=[10,2,3,5,6];
+         // var o=demo2(arr,2);
+         // console.log(o);
+
+          // function demo3(arr){
+          // 	var sum=0;
+          //  arr.forEach(function(item){
+          //  	if (typeof item=='number') {
+          //      sum+=item;
+          //  	}
+          //  })
+          //  return sum;
+          // }
+          // var arr=[5,"张三",9,80,true,28];
+          // var o=demo3(arr);
+          // console.log(o);
+
+      //     function demo4(arr){
+      //     	var arr0=[];
+      //     	arr.forEach(function(item){
+      //     		if (arr0.indexOf(item)==-1) {
+      //     			arr0.push(item);
+      //     		}
+      //     	})
+      //     	return arr0;
+      //     }
+      // var arr1=[1,2,2,3,4,4,4,4];var arr2=[1,2,'M','e','r', 'r', 'y'];
+      //    var o=demo4(arr1);
+      //    console.log(o);
+
+      // function demo5(arr){
+      // 	arr.forEach(function(item,index){
+      // 		if (item==="5") {
+      // 			console.log(index);
+      // 		}
+      // 	})
+      // }
+      
+      // var arr=["4","5","6","jack",true];
+      // demo5(arr);
+
+      // function demo6(arr){
+      //  var arr0=arr.concat();
+      //  arr0.push('item');
+      //  return arr0;
+      // }
+      // var arr=['jack','lucy','merry','tom','mike'];
+      // var o=demo6(arr);
+      // console.log(o);
+
+      // function demo7(arr){
+      // // 	var arr0=arr.concat();
+      // // 	arr0.pop();
+      // // 	return arr0;
+      //       return arr.slice(0,arr.length-1);
+      // }
+      // var arr=[1,2,3,4,5];
+      // var o=demo7(arr);
+      //  console.log(o);
+      //  console.log(arr)
+
+      // function demo8(arr){
+      // 	var arr0=arr.concat();
+      // 	arr0.unshift('item');
+      // 	return arr0;
+      // }
+      // var arr=[1,2,3,4,5];
+      // var o=demo8(arr);
+      // console.log(o);
+
+      // function demo9(arr){
+      //   var arr0=arr.concat();
+      //   arr0.shift();
+      //   return arr0;
+      // }
+      // var arr=[1,2,3,4,5];
+      // var o=demo9(arr);
+      // console.log(o);
+
+      // function demo10(ar1,ar2){
+        // var arr=ar1.concat(ar2);
+        // return arr;
+      //   return ar1.concat(ar2);
+      // }
+      // var arr1=[1,2,3,4],arr2=[5,6,7,8];
+      //  var o=demo10(arr1,arr2);
+      //  console.log(o);
+
+      
+      
+      
+       function demo11(arr,n){
+        arr.forEach(function(item,index){
+          if (item==n) {
+            n=index;
+            console.log('位置在：'+n)
+          }
+          console.log(-1);
+          return;
+        })
+
+       }
+
+       
+       var arr=[1,3,5,5,7,7,9,9];
+      var o=demo11(arr,5);
+      console.log(o)
+      
+      // function demo12(arr,n){
+      //  var arr0=arr.concat();
+      //  arr0.push(n);
+      //  return arr0;
+      // }
+      // var arr=[1,2,3,4];
+      // var o=demo12(arr,5);
+      // console.log(o);
+      // for(a=2;a<=50;a++){
+      //       for(b=1;b<=100;b++){
+      //           for(c=2;c<=100;c++){
+      //               if((a+b+c==100)&&(2*a+b+c/2==100)){ 
+      //                   document.write("大马:"+a+"中马:"+b+"小马:"+c+"<br/>")
+      //               }
+      //           }
+      //       }
+      //   }
+       // var str="sadsdsdsfsfsdasdaf";
+       // var o=str.split('').sort().join('');
+       // str=o;
+       // console.log(str)
+       // var arr3=[['2',1],['b',3],['v',4]];
+       // arr3.forEach(function(item){
+       //    console.log(item[1])
+       // })
+
+       // function demo(str){
+       // 	var arr=str.split('');
+       // 	arr.sort();
+       // 	str=arr.join('');
+       // 	var temp=str[0];
+       // 	var count=1;
+       // 	var arr0=[];
+       // 	for(var i=1;i<str.length;i++){
+       // 		if (temp==str[i]) {
+       // 			count++;
+       // 		}else{
+       // 			var arrs=[];
+       // 			arrs.push(temp,count);
+       // 			arr0.push(arrs);
+       // 			temp=str[i];
+       // 			count=1;
+       // 		}
+       // 	}
+       // 	arrs=[];
+       // 	arrs.push(temp,count);
+       // 	arr0.push(arrs);
+       // 	return arr0;
+       // }
+       // var o=demo(str);
+       // console.log(o);
+       // var max=o[0][1];
+       // var x=o[0][0];
+       // o.forEach(function(item){
+       //    if (max<item[1]) {
+       //    	max=item[1];
+       //    	x=item[0];
+       //    }
+
+       // })
+       // console.log(x,max);
+	</script>
+</body>
+</html>
