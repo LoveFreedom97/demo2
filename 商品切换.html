@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin: 0;padding: 0}
+	div{width:650px; margin: 5px auto;text-align: center;}
+	div ul{list-style: none;}
+	div ul li{float: left;padding: 2px;border: 1px solid gray;margin-right: 5px;}
+	div ul li img{width:150px;height: 90px;}
+	div ul li.on{border-color: red}
+	</style>
+	<script src="js/6.js"></script>
+</head>
+<body>
+	<div>
+	        <img src="pic/c1-1.jpg" alt="" id="pic">
+	        <ul>	        	
+	        	<li class=""><img src="pic/c2.png" alt=""></li>
+	        	<li><img src="pic/c2-2.jpg" alt=""></li>
+	        	<li><img src="pic/c3.jpg" alt=""></li>
+	        	<li><img src="pic/c1-1.jpg" alt=""></li>
+	        </ul>
+	</div>
+	<script>
+	    $().getTag('li').click(function(){
+            $(this).addClass('on').siblings().removeClass('on');
+	    	var s=$().getTag('img',this).attr('src');
+			$().getId('#pic').attr('src',s);
+	    })
+	 
+	 
+
+
+	 // var oDiv=document.querySelector('ul');
+	 // var oli=oDiv.querySelectorAll('li');
+	 // var oPic=document.querySelector('#pic');
+	 // var oImg=oDiv.querySelectorAll('img')
+	 // console.log(oDiv)
+	 // var index=0;
+	 // for(var i=0;i<oli.length;i++){
+  //        oli[i]._index=i;
+	 // 	oli[i].onclick=function(){
+	 // 		oli[index].className='';
+  //           this.className='on'
+		// 	index=this._index
+	 // 	}
+	 	
+	 // }
+	    
+	  //   for(var i=0;i<oli.length;i++){
+	    	
+	  //   	oli[i].onclick=function(){
+	  //   		for(var n=0;n<oli.length;n++){
+	  //   			oli[n].className='';
+	  //   		}
+	  //   		this.className='on';
+	  //   	}
+			// for(var i=0;i<oImg.length;i++){
+			// 	    	oImg[i].onclick=function(){
+			// 	    		oPic.src=this.src;
+			// 	    	}
+			// 	    }
+	  //   }
+	    
+	</script>
+</body>
+</html>
