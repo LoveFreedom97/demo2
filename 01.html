@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <title>Document</title>
+    <style>
+      .main{
+        width: 200px;
+        height: 200px;
+        background-color: #7fffd4;
+        display: flex;
+        flex-flow: column;
+        justify-content: center; /* 水平居中 */
+      align-items: center;
+      }
+      .box{
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        display: none;
+      }
+      .box1{
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        display: block;
+      }
+    </style>
+</head>
+<body>
+    <div class="animated infinite bounce delay-2s">
+        <div class="box"></div>
+        
+    </div>
+    <button class="button">HHHH</button>
+    <script>
+      var Obox = document.querySelector('.box')
+      var button = document.querySelector('button')
+           button.onclick = function (){
+             if(Obox.className == 'box1'){
+                  Obox.className = 'box'
+             }else{
+               Obox.className == 'box1'
+             }
+            }
+    </script>
+</body>
+</html>
